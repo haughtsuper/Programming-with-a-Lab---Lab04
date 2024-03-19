@@ -1,0 +1,72 @@
+#include <iostream>
+#include <string>
+#include <ctime>
+using namespace std;
+
+//function prototype
+string flipCoin();
+int rollDice(int sides);
+
+int main()
+{
+	char choice = ' ';
+	// seed the random number generator
+	unsigned seed = time(0);
+	int numToss = 0, diceSides = 0;
+	srand(seed);
+
+	cout << "Welcome to our coin toss and dice rolling program" << endl;
+	while (choice != 'E')
+	{
+		cout << "What would you like to choose flip coin(C), roll a dice(D), or exit (E)";
+		cin >> choice;
+		if (choice = 'C' || choice == 'c')
+		{
+			cout << "How many time do you want to flip a coin: ";
+			cin >> numToss;
+			for (int i = 0; i < numToss; i++)
+			{
+				cout << "flip" << i << " is " << flipCoin() << endl;
+			}
+		}
+		if (choice == 'D' || choice == 'd')
+		{
+			cout << "How many sides does the dice have: ";
+			cin >> diceSides;
+			cout << "How many time do you want to roll the dice: ";
+			cin >> diceSides;
+			for (int i = 0; i < diceSides; i++)
+			{
+				cout << "roll" << i << " is " << rollDice() << endl;
+			}
+		
+		
+		}
+		else
+		{
+			cout << "Thanks for playing!";
+		}
+	}
+	system("pause");
+	return 0;
+}
+string flipCoin()
+{
+	int toss = 1 + rand() % 2;
+	if (toss == 1)
+	{
+		return "heads";
+	}
+	else
+	{
+		return "tails";
+	}
+}
+string rollDice()
+{
+	int roll = 1 + rand() % sides;
+	if (roll == 1)
+	{
+		return diceSides;
+	}
+}
